@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from "@angular/router"
 import { AuthServiceService } from '../services/auth-service.service';
+import {  Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,21 @@ import { AuthServiceService } from '../services/auth-service.service';
 })
 export class HeaderComponent {
   routeData:any;
-  constructor(private _route:ActivatedRoute, private _service:AuthServiceService){  }
-  ngOnInIt(){
-    this.routeData = this._route.data.subscribe((data)=>{
-      console.log(data)
-    })
+  loginStatus:any=false;
+  LoginData:any;
+  constructor(private _service:AuthServiceService, private _router:Router){  
+     console.log(this._service.isLoggedIn())
+     this.loginStatus = this._service.isLoggedIn()
+     this.LoginData = this._service.loginUser.value
+     this.LoginData = JSON.parse(this.LoginData)
+     console.log('login user', this.LoginData)  
+    }
+
+  sign_out(){
+    this._service.logoutUser()
+    this.loginStatus = this._service.isLoggedIn;
+    console.log('status',this.loginStatus)
+    this._router.navigateByUrl('/home')
   }
   agent(){
     this._service.isAgent.next(true)

@@ -14,7 +14,7 @@
 			<input class="w-100" formControlName="password" type="password" placeholder="Password" />
 			<div class="agent_box" *ngIf="is_Agent==true">
 				<div>
-					<input class="checkbox m-2" type="checkbox" id="type_check" (change)="landlordCheck()">
+					<input class="checkbox m-2" type="checkbox" id="type_check" value="agent" formControlName="role" (change)="landlordCheck()">
 					<label for="type_check">I am a landlord or Professional</label>
 				</div>
 				<div class="prof_check" *ngIf="landloadChk">
@@ -26,7 +26,7 @@
 					<input class="w-100" formControlName="company_email" type="email" placeholder="Company Email">
 					<input class="w-100" formControlName="agency_address" type="text" placeholder="Agency Address">
 					<input class="w-100" formControlName="phone" type="number" placeholder="Phone No.">
-					<input class="" formArrayName="profile_pic" type="file" placeholder="Company Logo">
+					<input class="" formControlName="profile_pic" type="file" placeholder="Company Logo">
 					
 				</div>
 			</div>

@@ -14,26 +14,12 @@
              </tr>
            </thead>
            <tbody>
-             <tr>
-               <th scope="row">1</th>
-               <td>Mark</td>
-               <td>user</td>
-               <td>example&#64;email.com</td>
-               <td>0300-0000000</td>
-             </tr>
-             <tr>
-               <th scope="row">2</th>
-               <td>Jacob</td>
-               <td>user</td>
-               <td>example&#64;email.com</td>
-               <td>0300-0000000</td>
-             </tr>
-             <tr>
-               <th scope="row">3</th>
-               <td>acob</td>
-               <td>user</td>
-               <td>example&#64;email.com</td>
-               <td>0300-0000000</td>
+             <tr *ngFor="let user of userRole">
+               <th scope="row">{{userIndex}}</th>
+               <td>{{user.name}}</td>
+               <td>{{user.role}}</td>
+               <td>{{user.email}}</td>
+               <td>{{user.phone || 0300-0000000}}</td>
              </tr>
            </tbody>
          </table>

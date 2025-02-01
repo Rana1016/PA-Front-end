@@ -6,6 +6,7 @@ import { BlogPostingComponent } from './blog-posting/blog-posting.component';
 import { ListingComponent } from './listing/listing.component';
 import { SettingComponent } from './setting/setting.component';
 import { PanelComponent } from './panel/panel.component';
+import { AuthGuardGuard } from '../services/auth-guard.guard';
 
 const routes: Routes = [
   
@@ -16,28 +17,32 @@ const routes: Routes = [
       {
         path:'',
         redirectTo:'panel',
-        pathMatch:'full'
+        pathMatch:'full',
       },
       {
         path:'panel',
         component:PanelComponent,
+        canActivate:[AuthGuardGuard]
       },
       {
         path:'admin_control',
         component:AdminControlComponent,
-        
+        canActivate:[AuthGuardGuard]
       },
       {
         path:'blog_posting',
         component:BlogPostingComponent,
+        canActivate:[AuthGuardGuard]
       },
       {
         path: 'listing',
         component:ListingComponent,
+        canActivate:[AuthGuardGuard]
       },
       {
         path:'setting',
         component:SettingComponent,
+        canActivate:[AuthGuardGuard]
       },     
     ]
   }

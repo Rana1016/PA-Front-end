@@ -10,10 +10,7 @@ import { AuthServiceService } from '../services/auth-service.service';
 })
 export class HomeComponent {
   constructor(private _servie:AuthServiceService){}
-  // swiper = new Swiper('.swiper', {
-  // configure Swiper to use modules  ...
-// });
-  
+ 
   cityList = this._servie.city_list;
 
 }

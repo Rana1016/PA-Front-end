@@ -1,6 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
 import { AuthServiceService } from '../services/auth-service.service';
 import { FormGroup,FormBuilder,  Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,12 @@ import { FormGroup,FormBuilder,  Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private _elementRef:ElementRef, private _service:AuthServiceService, private _fb:FormBuilder){}
+  constructor(private _elementRef:ElementRef, private _service:AuthServiceService, private _fb:FormBuilder, private _router:Router){}
   is_Agent:any;
+  user_detail:any;
   ngOnInit():void{
     this.getElement()
     this._service.isAgent.subscribe(data=> this.is_Agent=data)
-    console.log('ng',this.is_Agent)
   }
   
   container:any;
@@ -26,10 +28,10 @@ export class LoginComponent {
   
 
   registerForm:FormGroup = this._fb.group({
-    name:[''],
-    email:[''],
-    password:[''],
-    role:['user'],
+    name:['',Validators.required],
+    email:['',Validators.required],
+    password:['',Validators.required],
+    role:[''],
     city:[''],
     agency_name:[''],
     company_email:[''],
@@ -46,6 +48,10 @@ export class LoginComponent {
   logIn(){
     if(this.loginForm.valid){
       this._service.login(this.loginForm.value).subscribe((data)=>{
+        this.user_detail = data
+        this.user_detail = this.user_detail.user
+        localStorage.setItem("PA_auth_info",JSON.stringify(this.user_detail))
+        this._router.navigateByUrl('/dashboard')
         console.log(data)
       })
     }else{
@@ -54,9 +60,22 @@ export class LoginComponent {
   }
   register(){
     if(this.registerForm.valid){
+      if(this.registerForm.value.role == true){
+        this.registerForm.patchValue({
+          role:['agent']
+        })
+      }else{
+        this.registerForm.patchValue({
+          role:['user']
+        })
+      }
       this._service.register(this.registerForm.value).subscribe((data)=>{
         console.log(data)
+        this.removeClass();
+        this.registerForm.reset()  
       })
+      console.log(this.registerForm.value.role)
+
     }else{
       alert('plz fill all the required fields')
     }

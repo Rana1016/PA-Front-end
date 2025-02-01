@@ -6,30 +6,30 @@
     <div class="container">
       <div class="contact-main  d-block d-md-flex d-lg-flex m-4">
         <div class="form col-12 col-md-6 col-lg-4 card p-4">
-          <form action="">
+          <form action="" [formGroup]="queryForm">
             <div class=" p-2 ">
               <div class="label">
                 <label for="">Name*</label>
               </div>
-              <input type="text" class="w-100 p-1" placeholder="Enter Your Name">
+              <input type="text" formControlName="name" class="w-100 p-1 form-control" placeholder="Enter Your Name">
             </div>
             <div class="p-2">
               <div class="label">
                 <label for="">Phone no.</label>
               </div>
-              <input type="number" class="w-100 p-1" maxlength="13" value="92" >
+              <input type="number" formControlName="phone" class="w-100 p-1 form-control" maxlength="13" value="92" >
             </div>
             <div class="p-2">
               <div class="label">
                 <label for="">Email</label>
               </div>
-              <input type="email" class="w-100 p-1" placeholder="Enter Email">
+              <input type="email" formControlName="email" class="w-100 form-control p-1" placeholder="Enter Email">
             </div>
             <div class="p-2">
               <div class="label">
                 <label for="">Location</label>
               </div>
-              <select name="" id="" class="w-100 p-1">
+              <select id="" formControlName="location" class="w-100 p-1 form-control">
                 <option value="">--Select--</option>
                 <option *ngFor="let city of cityList" value="{{city.value}}">{{city.cityName}}</option>
               </select>
@@ -38,41 +38,41 @@
               <div class="label">
                 <label for="">Subject</label>
               </div>
-              <input type="text" class="w-100 p-1" value="General Inquiry">
+              <input type="text" formControlName="subject" class="w-100 form-control p-1" value="General Inquiry">
             </div>
             <div class="p-2">
               <div class="label">
                 <label for="">Your Message</label>
               </div>
-              <input type="text" class="w-100 p-1" placeholder="Describe Your Query">
+              <input type="text" class="w-100 form-control p-1" formControlName="message" placeholder="Describe Your Query">
             </div>
             <div>
               <div class="p-2">
-                <input type="radio" name="whoAreU" id="agent" (change)="personType()">
+                <input type="radio" formControlName="role" value="agent" id="agent" (change)="personType()">
                 <label for="agent" class="p-1">Are you Agent</label>
-                <input type="radio" name="whoAreU" id="develop" (change)="personType()">
-                <label for="develop" class="p-1">Are you Developer</label>
+                <input type="radio" formControlName="role" value="developer" id="develop" (change)="personType()">
+                <label for="develop" class="p-1" >Are you Developer</label>
               </div>
             </div>
             <div class="p-2" id="p-type" *ngIf="isAgent">
               <div class="label">
                 <label for="">Type</label>
               </div>
-              <select name="" id="" class="w-100 p-1">
+              <select name="" id="" formControlName="role_type" class="w-100  form-control   p-1">
                 <option value="">--Select--
-                <option value="">Starter</option>
-                <option value="">Business</option>
-                <option value="">Titanium</option>
-                <option value="">Titanium Plus</option>
-                <option value="">Starter Pack</option>
-                <option value="">Value Booster</option>
-                <option value="">Premium Developer</option>
-                <option value="">Sign up as a developer</option>
-                <option value="">Sign up as an Agent</option>
+                <option value="starter">Starter</option>
+                <option value="business">Business</option>
+                <option value="titanium">Titanium</option>
+                <option value="titanium+">Titanium Plus</option>
+                <option value="starter_pack">Starter Pack</option>
+                <option value="value_booster">Value Booster</option>
+                <option value="premium_developer">Premium Developer</option>
+                <option value="developer_signup">Sign up as a developer</option>
+                <option value="agent_signup">Sign up as an Agent</option>
               </select>
             </div>
             <div class="submit text-center">
-              <button class="btn btn-success w-100">Send Your Question</button>
+              <button class="btn btn-success w-100" (click)="sendQuery()">Send Your Question</button>
             </div>
           </form>
         </div>

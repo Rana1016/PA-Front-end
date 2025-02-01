@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-setting',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./setting.component.css']
 })
 export class SettingComponent {
-
+  userData:any;
+  constructor(private _service:AuthServiceService){
+    this.userData = this._service.loginUser.value
+    this.userData = JSON.parse(this.userData)
+  }
+  cityList:any=this._service.city_list
 }

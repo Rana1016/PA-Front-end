@@ -53,50 +53,44 @@
                ></nz-cascader>
               </div>
           </div>
+          </div>
     <div class="row">
 <!-- price dropdown -->
 
-<div class="filter_div col-md-3">
-  <div class="label_price">
-      <label for="min-price" style="color: white;"><b>Price</b></label>
-  </div>
-
-  <!-- Display Selected Price Range -->
-  <div id="price_div">
-    <div class="dropdown w-100">
-      <button class="text-left btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Select price
-      </button>
-      <div class="main_menu d-flex">
-        <ul class="dropdown-menu">
-          <div class="item_box d-flex">
-            <div class="1st_box w-50 mx-2" style="border:2px solid black">
-              <li class="dropdown-item1" >Action</li>
-              <li><hr></li>
-              <li class="dropdown-item1" >Another action</li>
-              <li><hr> </li>
-              <li class="dropdown-item1" >Something else here</li>
-            </div>
-            <div class="2nd_box w-50 mx-2"  style="border:2px solid black">
-              <li><a class="dropdown-item" >Action 1</a></li>
-              <li><hr> </li>
-              <li><a class="dropdown-item" >Another action1 </a></li>
-              <li><hr> </li>
-              <li><a class="dropdown-item" >Something else here1</a></li>
-            </div>
-          </div>
-        </ul>
+<div class="filter_div col-md-3" >
+  <div id="">
+    <div id="price_min" class=" d-flex" style="background-color:transparent;">
+      <div class=" w-100 mb-3" style="padding-right: 15px;margin-right:10px;">
+          <label for="minPrice" style="color: white;"><b>Price Min:</b></label>
+          <select class="form-control" id="minPrice" name="minPrice" >
+            <option value="">Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10+</option>
+          </select>
       </div>
-      
+      <div class=" filter_div w-100 mb-3" style="padding-left: 15px;">
+          <label for="maxPrice"style="color: white;"><b>Price Max:</b></label>
+          <select class="form-control w-100" id="maxPrice" name="maxPrice">
+            <option value="">Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+          </select>
+      </div>
     </div>
   </div>
-
-  <!-- Dropdowns for Price Selection (Initially Hidden) -->
 </div>
-
-
 <!-- area range drop down -->
-
 <div class="filter_div col-md-3">
   <div class="label">
       <label for="areaRange" style="color: white;"><b>Area Marla to Kanal</b></label>
@@ -122,90 +116,13 @@
       </select>
   </div>
 </div>
-
-
 <div class="filter_div col-md-3">
   <div class="label_area">
       <label for="min-area" style="color: white;"><b>Area</b></label>
-  </div>
-
-  <!-- Display Selected Area Range -->
-  <div style="position: relative;">
-      <div id="area_div">
-          <h6 class="areaTxt">0 to Any</h6>
-      </div>
-
-      <!-- Dropdowns for Area Selection (Initially Hidden) -->
-      <div id="area-range-dropdown" class="d-flex_area" style="display: none; height: 336; background-color: white; border-radius: 5px; padding: 10px; position: absolute; z-index: 3; border: 1px solid #111111;">
-          <div class="area-input">
-              <label style="margin-left: 70px;">Min:</label>
-              <input type="text" class="styled-input_area_min" style="margin-left: 10px;" placeholder="0">
-              <div class="btn-group-wrap_area">
-                  <!-- Min Values -->
-                  <input type="radio" class="btn-check" name="min-area" id="min-area1" value="0" checked>
-                  <label class="btn btn-outline-primary" for="min-area1">0</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area2" value="2">
-                  <label class="btn btn-outline-primary" for="min-area2">2</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area3" value="4">
-                  <label class="btn btn-outline-primary" for="min-area3">4</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area4" value="6">
-                  <label class="btn btn-outline-primary" for="min-area4">6</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area5" value="8">
-                  <label class="btn btn-outline-primary" for="min-area5">8</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area6" value="10">
-                  <label class="btn btn-outline-primary" for="min-area6">10</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area7" value="12">
-                  <label class="btn btn-outline-primary" for="min-area7">12</label>
-
-                  <input type="radio" class="btn-check" name="min-area" id="min-area8" value="14">
-                  <label class="btn btn-outline-primary" for="min-area8">14</label>
-              </div>
-          </div>
-
-          <div class="area-input">
-              <label style="margin-left: 70px;">Max:</label>
-              <input type="text" class="styled-input_area_max" style="margin-left: 10px;" placeholder="Any">
-              <div class="btn-group-wrap_area">
-                  <!-- Max Values -->
-                  <input type="radio" class="btn-check" name="max-area" id="max-area1" value="Any" checked>
-                  <label class="btn btn-outline-primary" for="max-area1">Any</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area2" value="2">
-                  <label class="btn btn-outline-primary" for="max-area2">2</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area3" value="4">
-                  <label class="btn btn-outline-primary" for="max-area3">4</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area4" value="6">
-                  <label class="btn btn-outline-primary" for="max-area4">6</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area5" value="8">
-                  <label class="btn btn-outline-primary" for="max-area5">8</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area6" value="10">
-                  <label class="btn btn-outline-primary" for="max-area6">10</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area7" value="12">
-                  <label class="btn btn-outline-primary" for="max-area7">12</label>
-
-                  <input type="radio" class="btn-check" name="max-area" id="max-area8" value="14">
-                  <label class="btn btn-outline-primary" for="max-area8">14</label>
-              </div>
-          </div>
-      </div>
+      <input type="text" class="w-100 form-control" placeholder="Enter Value" >
   </div>
 </div>
-
-
 <!-- bed rooms drop down -->
-
-
 <div id="home_opt" class="col-md-3 d-flex" style="background-color:transparent;">
   <div class="filter_div w-100 mb-3" style="padding-right: 15px;">
       <label for="bedrooms" style="color: white;"><b>Beds</b></label>
@@ -237,7 +154,7 @@
 </div>
 </div>
 </div>
-</div>
+
 
 <div class="section">
     <div class="main" >

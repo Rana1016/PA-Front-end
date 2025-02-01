@@ -4,6 +4,7 @@
     top: 65px;
 }
 .sidebar{
+    height: 90vh;
     --cui-sidebar-brand-color: #fafafa;
     --cui-sidebar-nav-link-color: #fafafa;
     --cui-sidebar-nav-link-icon-color:#fafafa;

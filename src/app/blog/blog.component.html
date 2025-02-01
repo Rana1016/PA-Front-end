@@ -5,14 +5,14 @@
       <div class="container">
         <div class="d-lg-flex d-md-flex d-block">
           <div class="col-lg-9 col-md-8 col-12 blogs-section      ">
-            <div class="card m-4" >
-              <img class="card-img-top" src="./assets/1.jpeg" alt="Card image cap">
+            <div class="card m-4" *ngFor="let blog of blog_list" >
+              <img class="card-img-top" src="{{blog.blog_pic_file}}" alt="Card image cap">
               <div class="card-body">
-                <h3 class="card-title text-center">Card title</h3>
+                <h3 class="card-title text-center">{{blog.blog_title}}</h3>
                 <p class="post_info">
-                  4 MIN READ | NAME OF OWNER OR AGENT | DATE
+                  Published by | {{blog.user_name}} | {{blog.createdAt | date}}
                 </p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">{{blog.blog_des}}</p>
               </div>
             </div>
             <div class="card m-4" >
